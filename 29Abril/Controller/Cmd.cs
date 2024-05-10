@@ -7,11 +7,11 @@ using System.Windows.Input;
 
 namespace _29Abril.Controller
 {
-    internal class Cmd : ICommand
+    public class Cmd : ICommand
     {
-
-        private Action<Object> _execute { get; set; }
         private Predicate<Object> _canExecute { get; set; }
+        private Action<Object> _execute { get; set; }
+       
 
         public Cmd(Action<object> execute, Predicate<object> canExecute)
         {
@@ -28,7 +28,7 @@ namespace _29Abril.Controller
 
         public bool CanExecute(object? parameter)
         {
-            return _canExecute(parameter);  // v or False 
+            return _canExecute.Invoke(parameter);  // v or False 
         }
 
         public void Execute(object? parameter)
