@@ -9,6 +9,73 @@
       Title="Selos">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="MÁQUINA DOS SELOS"
+                   Foreground="Orange"
+                   FontWeight="Bold"
+                   TextAlignment="Center"
+                   FontSize="33"
+                   Grid.Row="0"
+                   Background="White"
+                   Padding="0 12"
+                   Grid.ColumnSpan="2">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect></TextBlock>
+        <Button Content="Trocar"
+                Width="200"
+                Height="200"
+                FontWeight="Bold"
+                Style="{StaticResource btstyle}"
+                Grid.Column="0"
+                Margin="22"
+                FontSize="33"
+                Grid.Row="1"></Button>
+        <StackPanel 
+            Grid.Row="1" Grid.Column="1"
+            Background="White"
+            Margin="23"
+            Orientation="Vertical">
+            <Label Content="Euros"
+                   FontSize="33"
+                   HorizontalAlignment="Center"
+                   ></Label>
+            <TextBox Margin="23"
+                     Text="{Binding Value , ElementName=slider, Mode=TwoWay}"
+                     FontSize="23"
+                     Background="Orange"
+                     TextAlignment="Right"
+                     x:Name="txteuros"
+                     ></TextBox>
+            <Slider 
+                x:Name="slider"
+                Margin="23"
+                TickFrequency="10"
+                Minimum="0"
+                Maximum="100"
+                IsSnapToTickEnabled="True"
+                TickPlacement="BottomRight"
+                Foreground="Black"
+                ></Slider>
+
+        </StackPanel>
+
+        <DockPanel Grid.Row="2" Grid.ColumnSpan="2">
+            <Border Margin="22" CornerRadius="12" BorderThickness="12" BorderBrush="Brown">
+                <TextBlock  x:Name="txtresultado" Background="white">
+
+
+                </TextBlock>
+            </Border>
+        </DockPanel>
+
     </Grid>
 </Page>

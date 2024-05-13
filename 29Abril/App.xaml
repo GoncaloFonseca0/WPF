@@ -4,6 +4,60 @@
              xmlns:local="clr-namespace:_29Abril"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style  TargetType="MenuItem">
+            <Setter Property="Background" Value="Red"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
+
+        <Style x:Key="btstyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse 
+                                 x:Name="bola"
+                                  Width="{TemplateBinding Width}" 
+                                  Height="{TemplateBinding Height}" 
+                                  Stroke="Maroon" StrokeThickness="22">
+                                <Ellipse.Fill>
+                                    <RadialGradientBrush  GradientOrigin="0,0">
+                                        <GradientStop Color="White" Offset="0"></GradientStop>
+                                        <GradientStop Color="Yellow" Offset="0.5"></GradientStop>
+                                        <GradientStop Color="Maroon" Offset="0.9"></GradientStop>
+                                    </RadialGradientBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <ContentPresenter
+                             VerticalAlignment="Center"
+                             HorizontalAlignment="Center"
+                             ContentSource="Content"
+                             ></ContentPresenter>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Fill" TargetName="bola">
+                                    <Setter.Value>
+                                        <RadialGradientBrush  GradientOrigin="0,0">
+                                            <GradientStop Color="White" Offset="0"></GradientStop>
+                                            <GradientStop Color="Pink" Offset="0.5"></GradientStop>
+                                            <GradientStop Color="Red" Offset="0.9"></GradientStop>
+                                        </RadialGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="StrokeThickness" TargetName="bola" Value="29"></Setter>
+                                <Setter Property="Foreground" Value="white"></Setter>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Fill" TargetName="bola" Value="black"></Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+
+
+                </Setter.Value>
+
+            </Setter>
+
+        </Style>
     </Application.Resources>
 </Application>
