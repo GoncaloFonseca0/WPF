@@ -2,8 +2,10 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:_29Abril"
+             xmlns:controller="clr-namespace:_29Abril.Controller"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <controller:Controller x:Key="ctrl"></controller:Controller>
         <Style  TargetType="MenuItem">
             <Setter Property="Background" Value="Red"></Setter>
             <Setter Property="Foreground" Value="White"></Setter>
@@ -59,5 +61,6 @@
             </Setter>
 
         </Style>
+        
     </Application.Resources>
 </Application>
