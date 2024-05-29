@@ -9,14 +9,15 @@ namespace _29Abril.Controller
 {
     public class Cmd : ICommand
     {
-        private Predicate<Object> _canExecute { get; set; }
-        private Action<Object> _execute { get; set; }
+        private Predicate<Object> _canExecute;
+        private Action<Object> _execute;
        
 
-        public Cmd(Action<object> execute, Predicate<object> canExecute)
+        public Cmd(Predicate<object> canExecute, Action<object> execute)
         {
-            _execute = execute;
             _canExecute = canExecute;
+            _execute = execute;
+            
         }   
 
         public event EventHandler? CanExecuteChanged

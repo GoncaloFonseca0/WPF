@@ -51,7 +51,7 @@
                                 <Setter Property="StrokeThickness" TargetName="bola" Value="29"></Setter>
                                 <Setter Property="Foreground" Value="white"></Setter>
                             </Trigger>
-                            <Trigger Property="IsEnabled" Value="False">
+                            <Trigger Property="IsEnabled" Value="False">  
                                 <Setter Property="Fill" TargetName="bola" Value="black"></Setter>
                             </Trigger>
                         </ControlTemplate.Triggers>
