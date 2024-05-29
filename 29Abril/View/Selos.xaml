@@ -40,8 +40,11 @@
                 Margin="22"
                 FontSize="33"
                 
-                Grid.Row="1" CommandParameter="{Binding Text, ElementName=txteuros}" Command="{Binding cmdSelos, Source={StaticResource ctrl}}"></Button>
-        
+                Grid.Row="1"
+                CommandParameter="{Binding Text, ElementName=txteuros}" 
+                Command="{Binding cmdSelos, Source={StaticResource ctrl}}"></Button>
+      
+
         <StackPanel 
             Grid.Row="1" Grid.Column="1"
             Background="White"
@@ -73,7 +76,8 @@
 
         <DockPanel Grid.Row="2" Grid.ColumnSpan="2">
             <Border Margin="22" CornerRadius="12" BorderThickness="12" BorderBrush="Brown">
-                <TextBlock  x:Name="txtresultado" Background="white">
+                <TextBlock 
+                    x:Name="txtresultado" Background="white">
 
 
                 </TextBlock>

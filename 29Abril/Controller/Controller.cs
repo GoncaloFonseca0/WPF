@@ -68,7 +68,8 @@ namespace _29Abril.Controller
 
         public bool canTrocaSelos(object parameter)
         {
-            if (string.IsNullOrEmpty(parameter.ToString())) return false;
+          
+            if (parameter == null || string.IsNullOrEmpty(parameter.ToString()) || int.Parse(parameter.ToString())==0) return false; 
             return true;
 
         }
@@ -77,8 +78,9 @@ namespace _29Abril.Controller
             int euros;
             if (int.TryParse(parameter.ToString(), out euros))
                 euros = 0;
+
             Selos pgselos = (Selos)main.frame.Content;
-            pgselos.txtresultado.Text = MaquinaSelos.trocaSelos(euros);
+            pgselos.txtresultado.Text = Biblioteca.trocaSelos(euros);
 
         }
     }

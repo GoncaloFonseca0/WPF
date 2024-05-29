@@ -15,28 +15,28 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="10*"/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="0">
             <Menu DockPanel.Dock="Top" FontSize="22">
                 <MenuItem Header="File">
                     <MenuItem 
-                        Header="Inicio"
-                        CommandParameter="Inicio"
-                        Command="{Binding cmdNavega, Source={StaticResource ctrl}}"></MenuItem>
+                      Header="Inicio"
+                      CommandParameter="Inicio"
+                      Command="{Binding cmdNavega, Source={StaticResource ctrl}}"></MenuItem>
                     <MenuItem 
-                           Header="Selos"
-                           CommandParameter="Selos"
-                           Command="{Binding cmdNavega, Source={StaticResource ctrl}}">
+                         Header="Selos"
+                         CommandParameter="Selos"
+                         Command="{Binding cmdNavega, Source={StaticResource ctrl}}">
                     </MenuItem>
                     <MenuItem 
-                         CommandParameter="Dados"
-                        Command="{Binding cmdNavega, Source={StaticResource ctrl}}"
-                        Header="JogoDados"></MenuItem>
+                       CommandParameter="JogoDados"
+                      Command="{Binding cmdNavega, Source={StaticResource ctrl}}"
+                      Header="JogoDados"></MenuItem>
                 </MenuItem>
                 <MenuItem 
-                    Header="Sair" 
-                    Command="{Binding cmdSair, Source={StaticResource ctrl}}" >
+                  Header="Sair" 
+                  Command="{Binding cmdSair, Source={StaticResource ctrl}}" >
 
                 </MenuItem>
             </Menu>
