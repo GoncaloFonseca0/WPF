@@ -41,7 +41,7 @@
                 </MenuItem>
             </Menu>
         </DockPanel>
-        <Frame x:Name="frame" Grid.Row="1" Source="/View/Inicio.xaml" ></Frame>
+        <Frame x:Name="frame" Grid.Row="1" Source="/View/Dados.xaml" ></Frame>
         <StackPanel Grid.Row="2"  Background="Black"></StackPanel>
     </Grid>
 </Window>

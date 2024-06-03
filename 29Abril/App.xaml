@@ -6,6 +6,7 @@
            
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <controller:Conversor x:Key="cvt"  ></controller:Conversor>
         <controller:Controller x:Key="ctrl"></controller:Controller>
 
         <Style  TargetType="MenuItem">

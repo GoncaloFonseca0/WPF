@@ -5,10 +5,102 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:_29Abril.View"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="650" d:DesignWidth="800"
       Title="Dados">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Jogo dos Dados"
+                   TextAlignment="Center"
+                   FontSize="33"
+                   Grid.ColumnSpan="3"
+                   Grid.Row="0"
+                   Padding="5"
+                   
+                   FontWeight="Bold"
+                   ></TextBlock>
+
+        <Image Grid.Column="0"
+               
+               Grid.Row="1" Width="200" Height="200"
+               Source="{Binding myJogo.Dado1,
+            Converter={StaticResource cvt},
+            Source={StaticResource ctrl}, Mode=OneWay}" 
+               ></Image>
+        <Image Grid.Column="2"
+       Grid.Row="1" Width="200" Height="200" Source="{Binding myjogo.Dado2, Converter={StaticResource cvt}, Source={StaticResource ctrl}, Mode=OneWay}"
+                     
+               ></Image>
+
+        <Button 
+            CommandParameter="{Binding Path=Text, ElementName=txtaposta}"
+            
+            Style="{StaticResource btstyle}"
+            Grid.Row="1" 
+            Grid.Column="1" 
+            Margin="12"
+            FontSize="33"
+            FontWeight="Bold"
+            Foreground="Black"
+            
+            Content="Rolar" Command="{Binding cmdRolar, Source={StaticResource ctrl}}"
+                ></Button>
+        <Border BorderBrush="Black" BorderThickness="12" CornerRadius="12"
+                Margin="12" Grid.Row="2" Grid.Column="0">
+            <StackPanel>
+                <Label FontSize="22" HorizontalAlignment="Center">
+                    Montante </Label>
+                <TextBlock 
+                    
+                     x:Name="txtmontante"
+                           Margin="12" FontSize="22"
+                           Background="White" 
+                    TextAlignment="Right"
+                    Text="{Binding myJogo.Montante, Source={StaticResource ctrl}}"
+                           ></TextBlock>
+                <Label FontSize="22" HorizontalAlignment="Center">
+                    Aposta</Label>
+                <TextBlock
+                    Text="{Binding Path=Value, ElementName=slider}"
+  TextAlignment="Right"
+                    Padding="12 2"
+                    x:Name="txtaposta"
+                    Margin="12" 
+                    FontSize="22"
+                    Background="White"></TextBlock>
+                <Slider
+                    Foreground="Black"
+                    x:Name="slider"
+                    Margin="12 5"
+                    TickFrequency="10"
+                    TickPlacement="BottomRight"
+                    IsSnapToTickEnabled="True"
+                    Minimum="0"
+                    Maximum="100"
+                    
+                    ></Slider>
+
+            </StackPanel>
+        </Border>
+        <Border 
+                Grid.Row="2" 
+            Grid.Column="1"
+                Grid.ColumnSpan="2" 
+                Margin="12"
+                BorderBrush="Black" 
+                BorderThickness="12"  
+                CornerRadius="12"></Border>
+            
+     
+       
     </Grid>
 </Page>
