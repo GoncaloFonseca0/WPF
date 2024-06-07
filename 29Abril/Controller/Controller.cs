@@ -2,17 +2,25 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Threading;
 
 namespace _29Abril.Controller
 {
     public class Controller : UIElement
     {
+
+        MainWindow main = (MainWindow)App.Current.MainWindow;
+        DispatcherTimer timer = new DispatcherTimer(); // quando acontecer vitória inicia um delegate e cria uma função recursiva 
+        public int poscor = 0;
+
         public Cmd cmdRolar { get; set; }  
-        public ClsJogoDados myJogo { get; set; }
+        public ClsJogoDados myjogo { get; set; }
         public Cmd cmdNavega { get; set; }
         public Cmd cmdSair { get; set; }
 
@@ -20,19 +28,63 @@ namespace _29Abril.Controller
         public Controller()
         {
 
-            myJogo=new ClsJogoDados();
+            myjogo=new ClsJogoDados();
+            myjogo.OnChangeMontante += Myjogo_OnChangeMontante; 
+            myjogo.OnPremio += Myjogo_OnPremio; // registar o evento
             cmdSair = new Cmd(canSair, Sair);
             cmdNavega = new Cmd(canNavega, Navega);
             cmdSelos = new Cmd(canTrocaSelos, TrocaSelos);
             cmdRolar = new Cmd(canRolar, Rolar);
         }
 
-        MainWindow main = (MainWindow)App.Current.MainWindow;
+        private void Myjogo_OnChangeMontante(string msg)
+        {
+            Dados pag = (Dados)main.frame.Content;
+            pag.visor.Text += msg; // colocar na caixa de texto o valor antigo e o recente
+        }
+
+        private void Myjogo_OnPremio(object sender, RoutedEventArgs e) // e-> tem aposta
+        {
+            // ir buscar a pagina
+            Dados pagina = (Dados)main.frame.Content;
+
+            // resposta ao evento
+            ClsJogoDados myjogo = (ClsJogoDados)sender; // foi o que disparou -> sender objecto generico
+
+            int premio = myjogo.Dado1 * 2 * ((ClsJogoDados.onPremioRoutedEventArgs)e).Aposta;  // calculo
+
+            // criar mensagem
+            pagina.visor.Text = $"Parabéns ganhou {premio} euros";
+            myjogo.Montante += premio;
+
+           // timer cores 
+            timer.Interval = TimeSpan.FromMilliseconds(1000);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+
+
+            string path = AppDomain.CurrentDomain.BaseDirectory;
+            int idx = path.IndexOf("bin");
+            path = path.Substring(0, idx) + @"dados\gongo.wav";
+            SoundPlayer soundPlayer = new SoundPlayer(path); // instanciar com o ficheiro onde esta a musica
+            soundPlayer.Load();
+            soundPlayer.Play();
+
+
+        }
+
+        private void Timer_Tick(object? sender, EventArgs e)
+        {
+            System.Windows.Media.Brush[] cores = new System.Windows.Media.Brush[] { Brushes.Yellow, Brushes.Red, Brushes.Blue, Brushes.Green }; // array de cores
+            Dados pag = (Dados)main.frame.Content;
+            pag.visor.Background = cores[(poscor +1)%cores.Length];
+            poscor++;
+        }
 
         public bool canRolar(object parameter)
         {
 
-
+         
 
             if (parameter == null) return false;
             if ( int.TryParse(parameter.ToString(), out int dado))
@@ -48,12 +100,19 @@ namespace _29Abril.Controller
         public void Rolar(Object parameter)
         {
 
+            timer.Stop(); // quando carregamos no "Rolar" ele para o timer
+
+            // Quando voltar a rolar os dados apaga a mensagem
+             Dados pagina = (Dados)main.frame.Content;
+            pagina.visor.Text = "";
+           
+
 
             if (parameter == null) return;
             if (int.TryParse(parameter.ToString(), out int aposta))
             {
-                myJogo.rolar(aposta);
-                Dados pag = (Dados)main.frame.Content;
+                myjogo.rolar(aposta);
+                Dados pag = (Dados)main.frame.Content;   // bloquear o botao de jogar se o montante for 0
                 if (pag.txtmontante.Text == "0") pag.slider.Value = 0;
 
             }

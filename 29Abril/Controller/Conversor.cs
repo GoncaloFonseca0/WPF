@@ -14,9 +14,10 @@ namespace _29Abril.Controller
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
 
+
             if (int.TryParse(value.ToString(), out int dado))
             {
-                BitmapImage bitmap = new BitmapImage(new Uri("/dados/" + dado.ToString() + ".png", UriKind.Relative));
+                BitmapImage bitmap = new BitmapImage(new Uri("/dados/"+dado.ToString() + ".png", UriKind.Relative));
                 return bitmap;
             }
             return null;
