@@ -20,6 +20,7 @@
     <None Remove="space\2.png" />
     <None Remove="space\3.png" />
     <None Remove="space\4.png" />
+    <None Remove="space\5.png" />
     <None Remove="space\player.png" />
     <None Remove="space\purple.png" />
   </ItemGroup>
@@ -35,6 +36,7 @@
     <Resource Include="space\2.png" />
     <Resource Include="space\3.png" />
     <Resource Include="space\4.png" />
+    <Resource Include="space\5.png" />
     <Resource Include="space\player.png" />
   </ItemGroup>
 

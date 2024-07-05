@@ -124,7 +124,7 @@ namespace _29Abril.View
         {
             // this function will make the enemies for us including assignning them images
             ImageBrush enemySprite = new ImageBrush(); // make a new image brush called enemy sprite
-            enemySpriteCounter = rand.Next(1, 5); // generate a random number inside the enemy sprite counter integer
+            enemySpriteCounter = rand.Next(1, 6); // generate a random number inside the enemy sprite counter integer
             // below switch statement will check what number is generated inside the enemy sprite counter
             // and then assign a new image to the enemy sprite image brush depending on the number
             switch (enemySpriteCounter)
