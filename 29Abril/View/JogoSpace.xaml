@@ -1,0 +1,23 @@
+﻿<Page x:Class="_29Abril.View.JogoSpace"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:_29Abril.View"
+      mc:Ignorable="d"
+      Title="Jogo de Guerra do Espaço" Height="680"    Width="425"
+       >
+
+
+    <Canvas  Name="my1stCanvas" Focusable="True" Background="Black" KeyDown="onKeyDown" KeyUp="onKeyUp" Margin="10,0,10,0">
+        <Rectangle Name="player" Height="50" Width="60" Fill="Yellow" HorizontalAlignment="Center" Canvas.Left="172" Canvas.Top="546" VerticalAlignment="Top" RenderTransformOrigin="-1.908,0.37"/>
+
+        <Label Name="scoreText" Content="score: 0" FontSize="18" FontWeight="Bold" Foreground="White"></Label>
+        <Label Name="damageText" Content="score: 0" FontSize="18" FontWeight="Bold" Foreground="White" Canvas.Left="284" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="-0.992,0.972"/>
+
+
+    </Canvas>
+
+
+
+</Page>

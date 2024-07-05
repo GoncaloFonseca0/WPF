@@ -10,7 +10,40 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="dados\1.png" />
+    <None Remove="dados\2.png" />
+    <None Remove="dados\3.png" />
+    <None Remove="dados\4.png" />
+    <None Remove="dados\5.png" />
+    <None Remove="dados\6.png" />
+    <None Remove="space\1.png" />
+    <None Remove="space\2.png" />
+    <None Remove="space\3.png" />
+    <None Remove="space\4.png" />
+    <None Remove="space\player.png" />
+    <None Remove="space\purple.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="dados\1.png" />
+    <Resource Include="dados\2.png" />
+    <Resource Include="dados\3.png" />
+    <Resource Include="dados\4.png" />
+    <Resource Include="dados\5.png" />
+    <Resource Include="dados\6.png" />
+    <Resource Include="space\1.png" />
+    <Resource Include="space\2.png" />
+    <Resource Include="space\3.png" />
+    <Resource Include="space\4.png" />
+    <Resource Include="space\player.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Model\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="space\purple.png" />
   </ItemGroup>
 
 </Project>

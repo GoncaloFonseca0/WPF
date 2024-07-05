@@ -30,10 +30,25 @@
                          Command="{Binding cmdNavega, Source={StaticResource ctrl}}">
                     </MenuItem>
                     <MenuItem 
+                           CommandParameter="JogoSpace"
+                          
+                            Header="Space Games">
+
+                    </MenuItem>
+
+                    <MenuItem 
                        CommandParameter="JogoDados"
                       Command="{Binding cmdNavega, Source={StaticResource ctrl}}"
                       Header="JogoDados"></MenuItem>
+                    
                 </MenuItem>
+
+               
+
+                
+                
+
+
                 <MenuItem 
                   Header="Sair" 
                   Command="{Binding cmdSair, Source={StaticResource ctrl}}" >
@@ -41,7 +56,7 @@
                 </MenuItem>
             </Menu>
         </DockPanel>
-        <Frame x:Name="frame" Grid.Row="1" Source="/View/Dados.xaml" ></Frame>
+        <Frame x:Name="frame" Grid.Row="1" Source="/View/JogoSpace.xaml" ></Frame>
         <StackPanel Grid.Row="2"  Background="Black"></StackPanel>
     </Grid>
 </Window>

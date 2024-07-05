@@ -121,8 +121,11 @@ namespace _29Abril.Controller
         public bool canNavega(Object parameter)
         {
             string destino = parameter.ToString();
-            if (main.frame.Source.ToString().Contains(destino)) return false;
+           
+         if (main.frame.Source.ToString().Contains(destino)) return false;
             return true;
+
+
         }
         public void Navega(Object parameter)
         {
@@ -137,6 +140,9 @@ namespace _29Abril.Controller
                     break;
                 case "Selos":
                     main.frame.Source = new Uri(@"/View/Selos.xaml", UriKind.Relative);
+                    break;
+                case "JogoSpace":
+                    main.frame.Source = new Uri(@"/View/JogoSpace.xaml", UriKind.Relative);
                     break;
                 default:
                     main.frame.Source = new Uri(@"/View/Inicio.xaml", UriKind.Relative);
